@@ -12,7 +12,6 @@ class SocialImages extends StatelessWidget {
       child: ClipRRect(
         child: Image.asset(
           imagePath,
-          // fit: BoxFit.cover,
         ),
       ),
     );
