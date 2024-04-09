@@ -69,7 +69,7 @@ class SocialScreen extends StatelessWidget {
                     width: 10,
                   ),
                   SocialImages(
-                    imagePath: 'images/pinterest.png',
+                    imagePath: 'images/sm-icons-facebook-logo.webp',
                   ),
                 ],
               ),
