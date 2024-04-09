@@ -1,3 +1,4 @@
+import 'package:deegaamiye_2/Src/Components/social_images.dart';
 import 'package:deegaamiye_2/Src/Components/social_list_tiles.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class SocialScreen extends StatelessWidget {
       backgroundColor: Colors.grey.shade200,
       body: const SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25),
+          padding: EdgeInsets.symmetric(horizontal: 25),
           child: Column(
             children: [
               SizedBox(
@@ -48,6 +49,49 @@ class SocialScreen extends StatelessWidget {
                     fontSize: 20,
                   ),
                 ),
+              ),
+              SizedBox(
+                height: 40,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialImages(
+                    imagePath: 'images/instagram.webp',
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SocialImages(
+                    imagePath: 'images/linkedin.webp',
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SocialImages(
+                    imagePath: 'images/pinterest.png',
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SocialImages(
+                    imagePath: 'images/twitter.webp',
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  SocialImages(
+                    imagePath: 'images/sm-icons-youtube.png',
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                ],
               )
             ],
           ),
