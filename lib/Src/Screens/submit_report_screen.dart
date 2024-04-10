@@ -1,7 +1,10 @@
 import 'dart:io';
 import 'package:deegaamiye_2/Src/Components/button.dart';
+import 'package:deegaamiye_2/Src/Components/current_location.dart';
 import 'package:deegaamiye_2/Src/Components/text_feild.dart';
+import 'package:deegaamiye_2/Src/Controllers/location_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SubmitScreen extends StatelessWidget {
   final File imageFile;
@@ -12,11 +15,25 @@ class SubmitScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final descriptionController = TextEditingController();
     final FormKey = GlobalKey<FormState>();
+    LocationController controller = Get.put(LocationController());
+
+    void submitReport() {
+      if (descriptionController.text.isNotEmpty &&
+          controller.currentCity != null &&
+          controller.currentCountry != null) {
+        String reportDescription = descriptionController.text;
+        String currentLocation =
+            controller.currentCity + controller.currentCountry;
+
+        print(reportDescription);
+        print(currentLocation);
+      }
+    }
 
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: Text('Submit & Report'),
+          title: Text('Submit Report'),
         ),
         body: Column(
           children: [
@@ -40,7 +57,7 @@ class SubmitScreen extends StatelessWidget {
                 SizedBox(
                   width: 10,
                 ),
-                Text("Mogadishu, Somalia")
+                CurrentLocation(),
               ],
             ),
             SizedBox(
@@ -54,7 +71,9 @@ class SubmitScreen extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            SubmitButton(onTap: () {}),
+            SubmitButton(
+              onTap: submitReport,
+            ),
           ],
         ));
   }

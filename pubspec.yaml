@@ -40,6 +40,9 @@ dependencies:
   camera:
   path_provider:
   flutter_camera:
+  geolocator:
+  geocoding:
+  permission_handler:
 
 dev_dependencies:
   flutter_test:
