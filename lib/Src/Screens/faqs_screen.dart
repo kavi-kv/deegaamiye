@@ -15,6 +15,7 @@ class FaqsScreen extends StatelessWidget {
     FaqController controller = Get.put(FaqController());
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12),

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class ForeCastContainer extends StatefulWidget {
-  const ForeCastContainer({Key? key}) : super(key: key);
+  const ForeCastContainer({super.key});
 
   @override
   _ForeCastContainerState createState() => _ForeCastContainerState();
@@ -121,35 +121,41 @@ class _ForeCastContainerState extends State<ForeCastContainer> {
                   SizedBox(height: 10),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
-                    child: Row(
-                      children: _forecastData.map((forecast) {
-                        final DateTime dateTime =
-                            DateTime.fromMillisecondsSinceEpoch(
-                                forecast['dt'] * 1000);
-                        final String temperature =
-                            (forecast['main']['temp'] - 273.15)
-                                    .toStringAsFixed(1) +
-                                '°C';
-                        final String iconCode = forecast['weather'][0]['icon'];
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Column(
-                            children: [
-                              Text(
-                                '${dateTime.hour}:00',
-                                style: TextStyle(
-                                    fontSize: 16, fontWeight: FontWeight.bold),
-                              ),
-                              Image.network(
-                                'http://openweathermap.org/img/wn/$iconCode.png',
-                                width: 40,
-                                height: 40,
-                              ),
-                              Text(temperature),
-                            ],
-                          ),
-                        );
-                      }).toList(),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(),
+                      child: Row(
+                        children: _forecastData.map((forecast) {
+                          final DateTime dateTime =
+                              DateTime.fromMillisecondsSinceEpoch(
+                                  forecast['dt'] * 1000);
+                          final String temperature =
+                              (forecast['main']['temp'] - 273.15)
+                                      .toStringAsFixed(1) +
+                                  '°C';
+                          final String iconCode =
+                              forecast['weather'][0]['icon'];
+                          return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Column(
+                              children: [
+                                Text(
+                                  '${dateTime.hour}:00',
+                                  style: TextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Image.network(
+                                  'http://openweathermap.org/img/wn/$iconCode.png',
+                                  width: 40,
+                                  height: 40,
+                                ),
+                                Text(temperature),
+                              ],
+                            ),
+                          );
+                        }).toList(),
+                      ),
                     ),
                   ),
                 ],
