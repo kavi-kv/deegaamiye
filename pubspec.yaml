@@ -37,6 +37,9 @@ dependencies:
   flutter_faq:
   get:
   http:
+  camera:
+  path_provider:
+  flutter_camera:
 
 dev_dependencies:
   flutter_test:

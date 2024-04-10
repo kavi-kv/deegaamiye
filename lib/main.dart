@@ -1,3 +1,4 @@
+import 'package:deegaamiye_2/Src/Screens/camera_screen.dart';
 import 'package:deegaamiye_2/Src/Screens/faqs_screen.dart';
 import 'package:deegaamiye_2/Src/Screens/home_screen.dart';
 import 'package:deegaamiye_2/Src/Screens/socials_screen.dart';
@@ -14,9 +15,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FaqsScreen(),
+      home: HomeScreen(),
     );
   }
 }
