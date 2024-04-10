@@ -37,7 +37,7 @@ class FaqsScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   FaqsRectangularTile(
-                    text: "Events",
+                    text: "Educate",
                     onTap: () {
                       controller.setDisplayEvents();
                     },
