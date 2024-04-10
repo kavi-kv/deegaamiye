@@ -11,7 +11,7 @@ class FaqsRectangularTile extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 110,
+        width: 90,
         height: 50,
         padding: const EdgeInsets.all(10),
         decoration: BoxDecoration(

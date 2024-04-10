@@ -18,16 +18,6 @@ class FaqsContainer extends StatelessWidget {
           answer: "data",
           showDivider: false,
         ),
-        FAQ(
-          question: "Question",
-          answer: "data",
-          showDivider: false,
-        ),
-        FAQ(
-          question: "Question",
-          answer: "data",
-          showDivider: false,
-        ),
       ],
     );
   }
