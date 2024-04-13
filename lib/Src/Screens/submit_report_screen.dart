@@ -1,6 +1,8 @@
 import 'dart:io';
-import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:deegaamiye_2/Src/Screens/home_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:deegaamiye_2/Src/Controllers/location_controller.dart';
 import 'package:deegaamiye_2/Src/Components/button.dart';
@@ -31,10 +33,13 @@ class SubmitScreen extends StatelessWidget {
         // Upload image to Firebase Storage
         String imageUrl = await uploadImageToFirebaseStorage(imageFile);
 
-        // Do whatever you want with imageUrl, like saving it to Firestore or displaying it
-        print("Report Description: $reportDescription");
-        print("Current Location: $currentLocation");
-        print("Image URL: $imageUrl");
+        print("Image uploaded to Firebase Storage: $imageUrl");
+
+        // Upload data to Firestore
+        await uploadDataToFirestore(
+            imageUrl, reportDescription, currentLocation);
+
+        print("Report submitted successfully!");
       }
     }
 
@@ -100,5 +105,26 @@ class SubmitScreen extends StatelessWidget {
     String imageUrl = await taskSnapshot.ref.getDownloadURL();
 
     return imageUrl;
+  }
+
+  Future<void> uploadDataToFirestore(
+      String imageUrl, String reportDescription, String currentLocation) async {
+    try {
+      // Access Firestore instance
+      FirebaseFirestore firestore = FirebaseFirestore.instance;
+
+      // Add data to Firestore
+      await firestore.collection('reports').add({
+        'imageUrl': imageUrl,
+        'description': reportDescription,
+        'location': currentLocation,
+        'timestamp': Timestamp.now(),
+      });
+
+      print("Data uploaded to Firestore successfully!");
+      Get.offAll(() => HomeScreen());
+    } catch (error) {
+      print("Error uploading data to Firestore: $error");
+    }
   }
 }
