@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "755188684685",
+    "project_id": "deegaamiye",
+    "storage_bucket": "deegaamiye.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:755188684685:android:28bbd8b39b3a28ffc30fc4",
+        "android_client_info": {
+          "package_name": "com.example.deegaamiye_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD90cH9GFAGd3QroQufyDDBV21K9To1XJs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

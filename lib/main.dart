@@ -2,11 +2,17 @@ import 'package:deegaamiye_2/Src/Screens/camera_screen.dart';
 import 'package:deegaamiye_2/Src/Screens/faqs_screen.dart';
 import 'package:deegaamiye_2/Src/Screens/home_screen.dart';
 import 'package:deegaamiye_2/Src/Screens/socials_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-void main() {
-  runApp(const MyApp());
+void main() async {
+  // Initialize Firebase
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+
+  // Run your app
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SocialScreen(),
+      home: HomeScreen(),
     );
   }
 }
